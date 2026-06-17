@@ -106,12 +106,12 @@ const buildImageSrcSet = (imageUrl = "") => {
 };
 
 export const mapProductFromApi = (item) => {
-  const price = Number(item?.price ?? 0);
+  const price = Number(item?.price || item?.priceValue || item?.prices?.[0]?.priceValue || 0);
   const oldPriceRaw = item?.oldPrice == null ? null : Number(item.oldPrice);
-  const oldPrice = oldPriceRaw && oldPriceRaw > price ? oldPriceRaw : null;
+  const oldPrice = Number(item?.oldPrice || item?.prices?.[0]?.originalPrice || null);
   const ratingAvg = Number(item?.ratingAvg ?? 0);
   const ratingCount = Number(item?.ratingCount ?? 0);
-  const stockQuantity = Number(item?.stockQuantity ?? 0);
+  const stockQuantity = Number(item?.stockQuantity ?? item?.stock ?? 0);
   const rawImageUrl = item?.imageUrl?.trim();
   const fallbackImage = rawImageUrl || pickProductImageByCategory(item?.categoryName);
   const preferredImage = getPreferredImageUrl(rawImageUrl) || fallbackImage;

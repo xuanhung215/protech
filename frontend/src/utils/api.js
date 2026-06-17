@@ -1,8 +1,8 @@
 // =====================================================
 // utils/api.js – Các hàm gọi API tới Backend
 // =====================================================
-
-const API_BASE = "/api";
+import { API_BASE_URL } from "../services/apiConfig";
+const API_BASE = API_BASE_URL;
 
 // Lấy JWT token từ localStorage
 const getToken = () => localStorage.getItem("token");

@@ -2,10 +2,10 @@ import axios from "axios";
 import { API_BASE_URL } from "./apiConfig";
 import { buildCategoryList, mapProductFromApi } from "../utils/productHelpers";
 
-const API_PREFIX = "/api/v1";
+axios.defaults.baseURL = API_BASE_URL
 
 export const getProductsFromApi = async (params = {}) => {
-  const response = await axios.get(`${API_BASE_URL}/products`, { params });
+  const response = await axios.get(`/products`, { params });
   const page = response.data || {};
   const content = Array.isArray(page.content) ? page.content : [];
 
@@ -17,7 +17,7 @@ export const getProductsFromApi = async (params = {}) => {
 };
 
 export const getCategoriesFromApi = async () => {
-  const response = await axios.get(`${API_BASE_URL}/categories`);
+  const response = await axios.get(`/categories`);
   return Array.isArray(response.data) ? response.data : [];
 };
 
