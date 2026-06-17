@@ -5,7 +5,7 @@ import { buildCategoryList, mapProductFromApi } from "../utils/productHelpers";
 const API_PREFIX = "/api/v1";
 
 export const getProductsFromApi = async (params = {}) => {
-  const response = await axios.get(`${API_BASE_URL}}/products`, { params });
+  const response = await axios.get(`${API_BASE_URL}/products`, { params });
   const page = response.data || {};
   const content = Array.isArray(page.content) ? page.content : [];
 
