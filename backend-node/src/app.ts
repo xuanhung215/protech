@@ -113,28 +113,28 @@ app.get("/api/v1/payment/vnpay-return", paymentRoutes.vnpayReturn);
 app.post("/api/v1/payment/vnpay-ipn", paymentRoutes.vnpayIpn);
 
 // ============================================
-// Admin routes (API endpoints)
+// Admin routes (API endpoints) — prefix /api/admin để khớp với frontend
 // ============================================
-app.get("/admin/user/all", authenticate, requireAdmin, adminRoutes.getAllUsers);
-app.post("/admin/user/add", authenticate, requireAdmin, adminRoutes.createUser);
-app.put("/admin/user/:id", authenticate, requireAdmin, adminRoutes.updateUser);
-app.delete("/admin/user/:id", authenticate, requireAdmin, adminRoutes.deleteUser);
+app.get("/api/admin/user/all", authenticate, requireAdmin, adminRoutes.getAllUsers);
+app.post("/api/admin/user/add", authenticate, requireAdmin, adminRoutes.createUser);
+app.put("/api/admin/user/:id", authenticate, requireAdmin, adminRoutes.updateUser);
+app.delete("/api/admin/user/:id", authenticate, requireAdmin, adminRoutes.deleteUser);
 
-app.get("/admin/category/all", authenticate, requireAdmin, adminRoutes.getAllCategoriesAdmin);
-app.post("/admin/category/add", authenticate, requireAdmin, adminRoutes.createCategory);
-app.put("/admin/category/:id", authenticate, requireAdmin, adminRoutes.updateCategory);
-app.delete("/admin/category/:id", authenticate, requireAdmin, adminRoutes.deleteCategory);
+app.get("/api/admin/category/all", authenticate, requireAdmin, adminRoutes.getAllCategoriesAdmin);
+app.post("/api/admin/category/add", authenticate, requireAdmin, adminRoutes.createCategory);
+app.put("/api/admin/category/:id", authenticate, requireAdmin, adminRoutes.updateCategory);
+app.delete("/api/admin/category/:id", authenticate, requireAdmin, adminRoutes.deleteCategory);
 
-app.get("/admin/product/all", authenticate, requireAdmin, adminRoutes.getAllProductsAdmin);
-app.post("/admin/product/add", authenticate, requireAdmin, adminRoutes.createProduct);
-app.put("/admin/product/:id", authenticate, requireAdmin, adminRoutes.updateProduct);
-app.delete("/admin/product/:id", authenticate, requireAdmin, adminRoutes.deleteProduct);
+app.get("/api/admin/product/all", authenticate, requireAdmin, adminRoutes.getAllProductsAdmin);
+app.post("/api/admin/product/add", authenticate, requireAdmin, adminRoutes.createProduct);
+app.put("/api/admin/product/:id", authenticate, requireAdmin, adminRoutes.updateProduct);
+app.delete("/api/admin/product/:id", authenticate, requireAdmin, adminRoutes.deleteProduct);
 
-app.get("/admin/order/all", authenticate, requireAdmin, adminRoutes.getAllOrdersAdmin);
-app.get("/admin/order/:id", authenticate, requireAdmin, adminRoutes.getOrderByIdAdmin);
-app.put("/admin/order/:id/status", authenticate, requireAdmin, orderRoutes.updateOrderStatus);
+app.get("/api/admin/order/all", authenticate, requireAdmin, adminRoutes.getAllOrdersAdmin);
+app.get("/api/admin/order/:id", authenticate, requireAdmin, adminRoutes.getOrderByIdAdmin);
+app.put("/api/admin/order/:id/status", authenticate, requireAdmin, orderRoutes.updateOrderStatus);
 
-app.get("/admin/dashboard/stats", authenticate, requireAdmin, dashboardRoutes.getDashboardStats);
+app.get("/api/admin/dashboard/stats", authenticate, requireAdmin, dashboardRoutes.getDashboardStats);
 
 // ============================================
 // Admin view routes (EJS templates)
